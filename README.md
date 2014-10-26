@@ -1,4 +1,4 @@
 UAM_JS
 ======
 
-Javascript
+Javascript - zadania do wykonaia w domu
