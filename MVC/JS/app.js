@@ -49,7 +49,7 @@ UAM.InputView = function (inputView) {
 		}
 	}
 
-	button.addEventListener("click",this.addElement.bind(this));
+	button.addEventListener('click',this.addElement());
 };
 
 UAM.utils.inherits(UAM.EventEmitter, UAM.InputView);
@@ -80,7 +80,7 @@ UAM.ListView = function (listView) {
     	element.innerHTML = data;
       	element.className = 'listItem';
 
-    	element.addEventListener("click", this.updateState(element));
+    	element.addEventListener('click', this.updateState(element));
 
     	this.list.appendChild(element);
 	};
