@@ -36,9 +36,7 @@ UAM.InputView = function (inputView) {
 
 	this.addElement = function() {
 		var text = textInput.value;
-		text = 'dddd';
 		if(text) {
-			console.log(this);
 			this.emit("addElement",text);
 		}
 		else
@@ -51,7 +49,7 @@ UAM.InputView = function (inputView) {
 		}
 	}
 
-	button.addEventListener("click",this.addElement());
+	button.addEventListener("click",this.addElement.bind(this));
 };
 
 UAM.utils.inherits(UAM.EventEmitter, UAM.InputView);
