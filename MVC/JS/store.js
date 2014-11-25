@@ -13,12 +13,12 @@ UAM.Store.prototype.add = function (data) {
 	this.emit("updateView", data);
 };
 
-UAM.Store.prototype.update = function (data) {
+UAM.Store.prototype.update = function (data, ifNew) {
 
-	if (data =='listItem' && this.selected>0)
-    	this.selected --;
-    else if (data =='doneItem')
+	if (data =='doneItem')
     	this.selected ++;
-
+    else if (!ifNew)
+    	this.selected --;
+    
     this.emit("updateFooter", this.data.length, this.selected);
 };
