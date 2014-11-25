@@ -14,28 +14,28 @@ window.addEventListener('DOMContentLoaded', function () {
 
 InputCtrl = function (inputView,store) {
 
-	var addElement = function(element) {
-		console.log(this);
+	this.addElement = function(element) {
 		store.add(element);
 	};
 
-	var updateView = function(text) {
+	this.updateView = function(text) {
 		inputView.clear(text);
 	};
 
-	inputView.on("addElement", addElement);
-	store.on("updateView", updateView);
+	inputView.on("addElement", this.addElement);
+	store.on("updateView", this.updateView);
 };
 
 
 UAM.InputView = function (inputView) {
 	UAM.EventEmitter.call(this);
 
-	var button= document.querySelector('#button');
-	var textInput = inputview
+	this.textInput = document.querySelector('#input');
+	button = document.querySelector('#button');
 
 	this.addElement = function() {
-		var text = textInput.value;
+		text = this.textInput.value;
+		
 		if(text) {
 			this.emit("addElement",text);
 		}
@@ -47,9 +47,9 @@ UAM.InputView = function (inputView) {
 		if(text) {
 			this.textInput.value = "";
 		}
-	}
+	};
 
-	button.addEventListener('click',this.addElement());
+	button.addEventListener('click',this.addElement.bind(this));
 };
 
 UAM.utils.inherits(UAM.EventEmitter, UAM.InputView);
@@ -57,16 +57,16 @@ UAM.utils.inherits(UAM.EventEmitter, UAM.InputView);
 
 ListCtrl = function (listView,store) {
 
-	var drawElement = function(data) {
+	this.drawElement = function(data) {
 		listView.drawElement(data);
 	}
 
-	var updateState = function(className) {
+	this.updateState = function(className) {
 		store.update(className);
 	}
 
-	store.on("elementAdded",drawElement);
-	listView.on("updateState", updateState);
+	store.on("elementAdded",this.drawElement);
+	listView.on("updateState", this.updateState);
 };
 
 
@@ -76,23 +76,29 @@ UAM.ListView = function (listView) {
 	this.list= listView;
 
 	this.drawElement = function(data) {
-		element = document.createElement('li');
+		var element = document.createElement('li');
     	element.innerHTML = data;
-      	element.className = 'listItem';
+      	element.className = 'doneItem';
+      	var me = this;
 
-    	element.addEventListener('click', this.updateState(element));
+    	element.addEventListener("click", function() {
+    		me.updateState(element);
+    	});
 
     	this.list.appendChild(element);
+
+    	this.updateState(element);
 	};
 
 	this.updateState = function(element){
+		
     	if (element.className =='listItem')
-    		element.className == 'doneItem';
+    		element.className = 'doneItem';
     	else
-    		element.className =='listItem';
+    		element.className ='listItem';
 
     	this.emit("updateState", element.className);
-    }
+    };
 
 };
 
@@ -101,24 +107,26 @@ UAM.utils.inherits(UAM.EventEmitter, UAM.ListView);
 
 FooterCtrl = function (footerView,store) {
 
-	var updateData = function(all, done) {
+	this.updateData = function(all, done) {
 		footerView.updateCounter(all,done);
-	}
+	};
 
-	store.on("updateFooter",updateData);
+	store.on("updateFooter",this.updateData);
 };
 
 UAM.FooterView = function (footerView) {
 	UAM.EventEmitter.call(this);
 
-	elementsCounter = document.querySelector('#all');
-	elementsDone = document.querySelector('#done');
-	elementsNotDone = document.querySelector('#notdone');
+	this.elementsCounter = document.querySelector('#all');
+	this.elementsDone = document.querySelector('#done');
+	this.elementsNotDone = document.querySelector('#notdone');
 
 	this.updateCounter = function(all, done) {
-		elementsCounter.value = all;
-		elementsDone.value = done;
-		elementsNotDone.value = all - done;
+		console.log('sieema');
+		this.elementsCounter.innerHTML = "Wszystkie : " + all;
+		this.elementsDone.innerHTML  = "Zrobione : " + done;
+		x=all - done;
+		this.elementsNotDone.innerHTML = "Nie zrobione : "  + x;
 	};
 
 };
