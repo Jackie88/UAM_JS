@@ -31,8 +31,15 @@ input {
 #listview li {
 	width: 100%;
 	height: 50px;
-	background: green;
 	margin:2px 0;
+}
+
+.listItem {
+	background: rgb(100,170,100);
+}
+
+.doneItem {
+	background: rgb(100,220,100);
 }
 
 footer {
