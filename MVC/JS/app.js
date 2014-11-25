@@ -61,12 +61,13 @@ ListCtrl = function (listView,store) {
 		listView.drawElement(data);
 	}
 
-	this.updateState = function(className) {
-		store.update(className);
+	this.updateView = function(className, ifNew) {
+		store.update(className, ifNew);
 	}
 
 	store.on("elementAdded",this.drawElement);
-	listView.on("updateState", this.updateState);
+	listView.on("updateView", this.updateView);
+	
 };
 
 
@@ -78,26 +79,31 @@ UAM.ListView = function (listView) {
 	this.drawElement = function(data) {
 		var element = document.createElement('li');
     	element.innerHTML = data;
-      	element.className = 'doneItem';
+      	element.className = 'listItem';
       	var me = this;
 
     	element.addEventListener("click", function() {
-    		me.updateState(element);
+    		me.changeState(element);
     	});
 
     	this.list.appendChild(element);
 
-    	this.updateState(element);
+    	this.updateView(element, true);
 	};
 
-	this.updateState = function(element){
+	this.changeState = function(element) {
 		
-    	if (element.className =='listItem')
+		if (element.className =='listItem')
     		element.className = 'doneItem';
     	else
     		element.className ='listItem';
 
-    	this.emit("updateState", element.className);
+    	this.updateView(element, false);
+	};
+
+	this.updateView = function(element, ifNew){
+		
+    	this.emit("updateView", element.className, ifNew);
     };
 
 };
