@@ -128,7 +128,6 @@ UAM.FooterView = function (footerView) {
 	this.elementsNotDone = document.querySelector('#notdone');
 
 	this.updateCounter = function(all, done) {
-		console.log('sieema');
 		this.elementsCounter.innerHTML = "Wszystkie : " + all;
 		this.elementsDone.innerHTML  = "Zrobione : " + done;
 		x=all - done;
