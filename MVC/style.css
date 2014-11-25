@@ -7,7 +7,7 @@ body {
 	background: black;
 }
 
-form {
+#inputview {
 	display: flex;
 	height: 40px;
 }
@@ -33,4 +33,19 @@ input {
 	height: 50px;
 	background: green;
 	margin:2px 0;
+}
+
+footer {
+	position:fixed;
+	bottom:10px;
+	width:50%;
+	height:40px;
+	left:0;
+	right:0;
+	margin:auto;
+	background: beige;
+}
+
+footer p {
+	display: inline-block;
 }
