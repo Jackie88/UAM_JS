@@ -31,7 +31,7 @@ UAM.InputView = function (inputView) {
 	UAM.EventEmitter.call(this);
 
 	this.textInput = document.querySelector('#input');
-	button = document.querySelector('#button');
+	var button = document.querySelector('#button');
 
 	this.addElement = function() {
 		text = this.textInput.value;
@@ -78,12 +78,12 @@ UAM.ListView = function (listView) {
 
 	this.drawElement = function(data) {
 		var element = document.createElement('li');
-    	element.innerHTML = data;
-      	element.className = 'listItem';
-      	var me = this;
+    		element.innerHTML = data;
+      		element.className = 'listItem';
+      		var me = this;
 
-    	element.addEventListener("click", function() {
-    		me.changeState(element);
+    		element.addEventListener("click", function() {
+    			me.changeState(element);
     	});
 
     	this.list.appendChild(element);
