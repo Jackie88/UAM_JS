@@ -1,52 +1,52 @@
 <!DOCTYPE html>
-<html lang="pl" ng-app="emailClient">
+<html lang="pl" ng-app='emailClient'>
 
     <head>
         <meta charset="utf-8"/>
         <!-- saved from url=(0014)about:internet -->
-        <title>Tytuł</title>
+        <title>BestMailApp</title>
         
         <link href="src/css/reset.css" rel="stylesheet"/>
         <link href="src/css/style.css" rel="stylesheet"/>
         
     </head>
     
-    <body ng-controller="mainController">
+    <body ng-controller='MainController as mainCtrl'>
         
         <header>
 	        <div id="appTitle"> 
-		        <h1> BestMail </h1>
+		        <h1>BestMail</h1>
 	        </div>
             <div id="currentWindow"> 
-		        <h2> {{currentWindow}} </h2>
+		        <h2> {{mainCtrl.title}} </h2>
 	        </div>
         </header>
 		<nav >
 			<h2>Options</h2>
-            <ul class="nav navbar-nav navbar-right">
-                <a href="#"><li>Email List</li></a>
-                <a href="#about"><li>View mail</li></a>
-                <a href="#contact"><li>Send mail</li></a>
-                <a href="#contact"><li>Configure</li></a>
+            <ul>
+                <a ui-sref="inbox" ng-click="mainCtrl.setTitle('Lista maili')"><li>Email List</li></a>
+                <a ui-sref="create" ng-click="mainCtrl.setTitle('Utwórz mail')"><li>Send mail</li></a>
+                <a ui-sref="config" ng-click="mainCtrl.setTitle('Konfiguracja')"><li>Configure</li></a>
             </ul>
         </nav>
             
         <!-- MAIN CONTENT AND INJECTED VIEWS -->
         <div id="main">
-		wdwdwedwe
-		23d23 </br>
-		wrewre
+	        
             <!-- angular templating -->
             <!-- this is where content will be injected -->
-
+			<div ui-view></div>
         </div>
         
         <footer>
         
         </footer>
     
+		<script src="lib/angular.js"></script>
+    	<script src="lib/angular-ui-router.js"></script>
+        <script src="build/app.min.js"></script>
+    
     </body>
 
-	<script src="build/min.js"></script>
-    <script src="script.js"></script>
+	
 </html>

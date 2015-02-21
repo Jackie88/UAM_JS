@@ -19,15 +19,25 @@ module.exports = function(grunt) {
           src: ['src/**/*.js']
         },
       },
-  
+    
+      concat: {
+        options: {
+          separator: ';',
+        },
+        dist: {
+          src: ['src/**/*.js'],
+          dest: 'build/app.min.js',
+        },
+      },
+
 	    uglify: {
 	      options: {
-          mangle: true,
-	        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+          mangle: false,
+	        //banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 	      },
 	      build: {
 	        src: 'src/**/*.js',
-	        dest: 'build/<%= pkg.name %>.min.js'
+	        dest: 'build/app.min.js'
 	      }
 	    },
 
@@ -55,6 +65,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-obfuscator');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  
   //grunt.registerTask('default', ['uglify']);
    
 };

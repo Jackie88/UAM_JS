@@ -116,6 +116,9 @@ setInterval(function () {
 	console.log('New email added');
 }, 1000 * 60);
 
+//app.get('*', function(req, res) {
+  //      res.sendFile('../index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    //});
 
 
 var server = app.listen(8080, function () {
