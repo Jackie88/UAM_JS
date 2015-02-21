@@ -1,0 +1,98 @@
+@font-face {
+    
+    font-family: Light;
+    src: url(fonts/Ade.ttf);  
+
+}
+
+html {
+font-family: "Light";
+
+}
+
+body {
+	width:100%;	
+}
+
+header {
+	position: fixed;
+	display: inline-block;
+	height: 80px;
+	width:100%;
+	background: white;
+	
+}
+
+header div *{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+nav{
+	position: fixed;
+	left:0;
+	top:81px;
+	width:20%;
+	
+	line-height: 200%;
+}
+
+#appTitle {
+	display: table;
+	background: #3b3b3b;
+	color:white;
+	height:inherit;
+	width:20%;
+	left:0;
+	top:0;
+	z-index: 100;
+	float:left;
+}
+
+#currentWindow{
+	display: table;
+	height: inherit;
+	width:80%;
+}
+
+h1{
+	font-size: 1.8em;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 1.4em;
+	margin: 10px;
+}
+
+#main {
+	position: relative;
+	width: 80%;
+	margin-top: 81px;
+	height:	4050px;
+	float: right;
+	
+	z-index: -1;
+	background: rgb(220,220,220);
+}
+
+nav {
+	text-align: center;
+}
+
+nav ul li:hover {
+	font-weight: bold;
+}
+
+nav ul li {
+	
+	padding: 10px 0;
+	margin:1px;
+	background: #646bf2;
+}
+
+a:link{
+	color: black;
+	text-decoration: none;
+}

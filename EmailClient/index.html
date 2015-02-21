@@ -6,27 +6,47 @@
         <!-- saved from url=(0014)about:internet -->
         <title>Tytuł</title>
         
-        <link href="CSS/reset.css" rel="stylesheet"/>
-        <!-- [if lt IE9]>
-            <script src="Javascript/html5.js"></script>
-        <! [endif] -->
+        <link href="src/css/reset.css" rel="stylesheet"/>
+        <link href="src/css/style.css" rel="stylesheet"/>
+        
     </head>
     
-    <body>
+    <body ng-controller="mainController">
         
         <header>
-        
+	        <div id="appTitle"> 
+		        <h1> BestMail </h1>
+	        </div>
+            <div id="currentWindow"> 
+		        <h2> {{currentWindow}} </h2>
+	        </div>
         </header>
-        
-        <section>
-        
-        </section>
+		<nav >
+			<h2>Options</h2>
+            <ul class="nav navbar-nav navbar-right">
+                <a href="#"><li>Email List</li></a>
+                <a href="#about"><li>View mail</li></a>
+                <a href="#contact"><li>Send mail</li></a>
+                <a href="#contact"><li>Configure</li></a>
+            </ul>
+        </nav>
+            
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div id="main">
+		wdwdwedwe
+		23d23 </br>
+		wrewre
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+
+        </div>
         
         <footer>
         
         </footer>
     
     </body>
+
 	<script src="build/min.js"></script>
-    <script src="lib/angular.js"></script>
+    <script src="script.js"></script>
 </html>
