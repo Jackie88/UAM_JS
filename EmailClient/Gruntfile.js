@@ -41,6 +41,13 @@ module.exports = function(grunt) {
 	      }
 	    },
 
+      cssmin: {
+        build: {
+            src: 'src/css/*.css',
+            dest: 'build/style.min.css'
+        } //build
+      },
+
       watch: {
         scripts: {
           files: ['src/**/*.js'],
@@ -66,7 +73,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   
-  //grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['jshint','cssmin','uglify']);
    
 };

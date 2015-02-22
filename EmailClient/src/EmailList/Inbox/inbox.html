@@ -1,5 +1,14 @@
 <div>
-	
-	<h1> OTRZYMANE MAILE!! </h1>
+	<div class="InjectDiv" ng-contorller="InboxController">
+		<div ng-repeat="mail in emails track by $index | orderBy: 'received' | limitTo:5">
+			<a ui-sref="view({emailId:mail.id})">
+				<div class="emailList"  ng-class="{'read' : mail.read}">
+					<h3>Od: {{mail.sender}} {{mail.id}}</h3>
+					<p><strong>Tytuł:</strong> {{mail.title}}</p>
+					<p class="content">{{mail.content | limitTo:60 }}</p>
+				</div>
+			</a>
+		</div>
+	</div>
 </div>
 

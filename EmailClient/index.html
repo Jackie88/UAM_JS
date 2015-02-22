@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="pl" ng-app='emailClient'>
+<html lang="pl" ng-app='emailApp'>
 
     <head>
         <meta charset="utf-8"/>
         <!-- saved from url=(0014)about:internet -->
         <title>BestMailApp</title>
         
-        <link href="src/css/reset.css" rel="stylesheet"/>
-        <link href="src/css/style.css" rel="stylesheet"/>
+        <link href="build/style.min.css" rel="stylesheet"/>
         
     </head>
     
-    <body ng-controller='MainController as mainCtrl'>
+    <body ng-controller="mainController">
         
         <header>
 	        <div id="appTitle"> 
 		        <h1>BestMail</h1>
 	        </div>
             <div id="currentWindow"> 
-		        <h2> {{mainCtrl.title}} </h2>
+		        <h2> {{title}}</h2>
 	        </div>
         </header>
 		<nav >
 			<h2>Options</h2>
             <ul>
-                <a ui-sref="inbox" ng-click="mainCtrl.setTitle('Lista maili')"><li>Email List</li></a>
-                <a ui-sref="create" ng-click="mainCtrl.setTitle('Utwórz mail')"><li>Send mail</li></a>
-                <a ui-sref="config" ng-click="mainCtrl.setTitle('Konfiguracja')"><li>Configure</li></a>
+                <a ui-sref="inbox" ><li>Odebrane</li></a>
+                <a ui-sref="sent" ><li>Wysłane</li></a>
+                <a ui-sref="create" ><li>Utwórz maila</li></a>
+                <a ui-sref="config" ><li>Konfiguracja</li></a>
             </ul>
         </nav>
             

@@ -1,17 +1,13 @@
 (function(){
 
-	var app = angular.module('emailClient', ['ui.router']);
-
-    app.controller('MainController', function($scope) {
-		
-		this.title = "sieeema";
-		
-		this.setTitle = function(newTitle) {
-			this.title = newTitle;	
-		};
-		
-    });
+	var app = angular.module('emailApp', ['ui.router','email-inbox','email-sent','email-view','email-create','email-config']);
 	
+	app.controller('mainController',function($scope){
+		
+		$scope.title = "Welcome";
+		$scope.reloadTime = 31000;
+		
+	});
 	//app.config(function (localStorageServiceProvider) {
 	//  localStorageServiceProvider.prefix = 'mailApp';
 	//});
@@ -24,23 +20,23 @@
 			.state('home', {
 				url: '/home',
 				templateUrl: 'src/welcome.html',
-				controller: 'MainController'
+				//controller: 'welcomeController'
+			}).state('view', {
+				url: '/view/:emailId',
+				templateUrl: 'src/ViewMail/view.html',
+				controller: 'ViewController'
 			}).state('inbox', {
 				url: '/inbox',
 				templateUrl: 'src/EmailList/Inbox/inbox.html',
-				//controller: 'InboxController'
+				controller: 'InboxController'
 			}).state('sent', {
 				url: '/sent',
 				templateUrl: 'src/EmailList/Sent/sent.html',
 				//controller: 'SentController'
-			}).state('view', {
-				url: '/view/:emailId',
-				templateUrl: 'single_mail/views/single.html',
-				//controller: 'SingleController'
 			}).state('create', {
 				url: '/create',
-				templateUrl: 'src/NewMail/newMail.html',
-				//controller: 'NewMailController'
+				templateUrl: 'src/NewMail/create.html',
+				//controller: 'CreateController'
 			}).state('config', {
 				url: '/config',
 				templateUrl: 'src/Configuration/config.html',
@@ -48,5 +44,4 @@
 			});
 		});
 		
-	
 })();

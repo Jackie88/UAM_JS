@@ -1,0 +1,16 @@
+<div ng-controller="ViewController">
+	
+	<div id="ViewPanel">
+		<button ui-sref="inbox">Wróć</button>
+		<button>Odpowiedz</button>
+		<button ng-click="deleteEmail()">Usuń mail</button>
+	</div>
+	
+	<div id="ViewContent">
+		<h2>Nadawca: {{mail.sender}}  </br><span class="date">{{date}}</span> </h2>
+		<h3>Tytuł: {{mail.title}}</h3>
+		<p>{{mail.content}}</p>
+	
+	</div>
+	
+</div>
