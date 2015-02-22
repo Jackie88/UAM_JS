@@ -1,5 +1,22 @@
-<div>
+<div ng-controller="CreateController">
 	
-	<h1>Napisz MAIL ! </h1>
-	
+	<form class="sendForm" name="NewMail" novalidate ng-submit="send()">
+      
+      <fieldset class="form-group">
+        <input ng-class="{empty:borders===true}" ng-pattern="mailValid" ng-model="receivers" class="form-control" placeholder="name@example.org" title="Email" required />
+      </fieldset>
+      
+      <fieldset class="form-group">
+        <input ng-class="{empty:borders===true}" ng-model="mailTitle" class="form-control" placeholder="title" title="mailTitle" required />
+      </fieldset>
+      
+      <fieldset class="form-group">
+        <textarea ng-model="content" ng-class="{empty:borders===true}"  class="form-control" placeholder="Write a short review of the product..." title="content" required></textarea>
+      </fieldset>
+       
+      <fieldset class="form-group">
+        <input type="submit" value="Send mail!" />
+      </fieldset>
+    </form>
+    
 </div>

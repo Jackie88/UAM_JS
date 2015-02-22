@@ -1,3 +1,12 @@
-<div>
-	<h1> SENT MAILS !</h1>
+<div class="InjectDiv" ng-contorller="SentController">
+	<div ng-repeat="mail in emails | orderBy:'sent':true | limitTo:15">
+		
+			<div class="emailList sent"  ng-class="{'read' : mail.read}">
+					
+				<h3>Do: {{mail.receivers.toString()}}</br> <span class="date"> {{getDateByTimestamp(mail.sent)}} </span></h3>
+				<p><strong>Tytuł:</strong> {{mail.title}}</p>
+				<p class="content">{{mail.content | limitTo:60 }}</p>
+			</div>
+		
+	</div>
 </div>

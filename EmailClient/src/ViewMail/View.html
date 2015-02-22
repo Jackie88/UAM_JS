@@ -2,7 +2,7 @@
 	
 	<div id="ViewPanel">
 		<button ui-sref="inbox">Wróć</button>
-		<button>Odpowiedz</button>
+		<button ui-sref="create({emailId:mail.id})">Odpowiedz</button>
 		<button ng-click="deleteEmail()">Usuń mail</button>
 	</div>
 	

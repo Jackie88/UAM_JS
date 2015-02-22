@@ -1,6 +1,6 @@
 angular.module('email-inbox')
+	
 	.controller('InboxController', function($timeout,$scope,$state,$http){
-		console.log('wywolanieinbox ctrl');
 		
 		$scope.$parent.title = 'Odebrane';
 		$scope.reload = $scope.$parent.reloadTime;
@@ -9,9 +9,16 @@ angular.module('email-inbox')
 		$scope.getData = function(){
 			$http.get('/emails').success(function(data) {
 				$scope.emails=data;
-				console.log($scope.emails);
 			});
 		};
+		
+		$scope.deleteEmail = function (mailId) {
+			console.log('usuwam '+mailId);
+    		$http.delete('/emails/'+mailId, {
+    		}).success(function (data) {
+    			$scope.getData();
+     		});
+    	};
 		
 		$scope.getData();
 		
@@ -19,7 +26,6 @@ angular.module('email-inbox')
 			$timeout(function() {
 		    	$scope.getData();
 				$scope.intervalFunction();
-				console.log('interwal co:' + $scope.reload);
 		    }, $scope.reload);
 		};
 		  

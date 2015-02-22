@@ -135,7 +135,7 @@ a:visited{
 	text-decoration: none;
 }
 
-h3::after{
+.emailList h3::after{
 	content:"  - NOWA!";
 }
 
@@ -179,6 +179,35 @@ h3::after{
 	border: 1px solid;
 }
 
+.form-control {
+	width: 70%;
+	margin:10px 30px;
+	line-height: 160%;
+	font-size: 1em;
+}
 
+textarea {
+	height:200px;
+}
+
+#sendForm {
+	margin-top: 30px;
+}
+
+.form-control.ng-dirty.ng-invalid {
+	border: red 1px solid;
+}
+
+.empty.ng-invalid{
+	border: red 1px solid;
+}
+
+.sent h3::after {
+	content:"" ;
+}
+
+.sent h3{
+	text-decoration: none !important;
+}
 
 

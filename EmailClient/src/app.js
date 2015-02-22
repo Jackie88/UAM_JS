@@ -19,27 +19,27 @@
 		$stateProvider
 			.state('home', {
 				url: '/home',
-				templateUrl: 'src/welcome.html',
+				templateUrl: 'src/Welcome.html',
 				//controller: 'welcomeController'
 			}).state('view', {
 				url: '/view/:emailId',
-				templateUrl: 'src/ViewMail/view.html',
+				templateUrl: 'src/ViewMail/View.html',
 				controller: 'ViewController'
 			}).state('inbox', {
 				url: '/inbox',
-				templateUrl: 'src/EmailList/Inbox/inbox.html',
+				templateUrl: 'src/EmailList/Inbox/Inbox.html',
 				controller: 'InboxController'
 			}).state('sent', {
 				url: '/sent',
-				templateUrl: 'src/EmailList/Sent/sent.html',
-				//controller: 'SentController'
+				templateUrl: 'src/EmailList/Sent/Sent.html',
+				controller: 'SentController'
 			}).state('create', {
-				url: '/create',
-				templateUrl: 'src/NewMail/create.html',
-				//controller: 'CreateController'
+				url: '/create/:emailId',
+				templateUrl: 'src/Create/Create.html',
+				controller: 'CreateController'
 			}).state('config', {
 				url: '/config',
-				templateUrl: 'src/Configuration/config.html',
+				templateUrl: 'src/Configuration/Config.html',
 				//controller: 'ConfigController'
 			});
 		});

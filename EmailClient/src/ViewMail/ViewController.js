@@ -1,8 +1,6 @@
 angular.module('email-view').
 	controller('ViewController', function($stateParams, $scope, $http, $state){
 		
-		console.log("state:" + $stateParams.emailId);
-		
 		$scope.updateEmail = function () {
     		$http.put('/emails/'+ $stateParams.emailId, {
                 read: true
@@ -22,7 +20,6 @@ angular.module('email-view').
 		$scope.deleteEmail = function () {
     		$http.delete('/emails/'+ $stateParams.emailId, {
     		}).success(function (data) {
-    			$scope.deleteEmailRes = data;
     			$state.go('inbox');
     		});
     	};

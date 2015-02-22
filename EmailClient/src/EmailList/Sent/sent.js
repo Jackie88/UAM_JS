@@ -1,7 +1,1 @@
-(function(){
-
-	var app = angular.module('email-sent', []);
-
-	
-	
-})();
+angular.module('email-sent', []);
