@@ -1,13 +1,22 @@
 <div ng-controller="ConfigController">
-	<h1> Config !</h1>
+	<h1> Konfiguracja </h1>
 	
-	<h1 id="id1" ng-model="heading">My Heading 1</h1>
-adsasd
-	<button id="button"> Click Me!</button>
-	<button ng-click="change()">show</button>
+	<br><br>
+	
+	<p id="id1" ng-model="theme_option">Zmiana motywu:</p>
 
-<button type="button"
-onclick="document.getElementById('appTitle').style.background = 'red'">
-Click Me!</button>
-
+	<br>
+	
+	<button class="btn1" ng-click="change(1)" type="button">Motyw czerwony</button>
+	<button class="btn2" ng-click="change(2)" type="button">Motyw niebieski</button>
+	<button class="btn3" ng-click="change(3)" type="button">Motyw zielony</button>
+	
+	<br><br>
+	
+	<p id="id2" ng-model="refresh_option">Czas odświerzania:</p>
+	
+	<br>
+	
+	<input type="number" class="inpt" placeholder="Wpisz minuty do odświerzania maili" ng-model="refresher">	
+	<button class="btn_r" ng-click="refresh_time(refresher)" type="button">Zmień</button>
 </div>
