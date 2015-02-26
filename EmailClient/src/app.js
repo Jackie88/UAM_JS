@@ -40,7 +40,7 @@
 			}).state('config', {
 				url: '/config',
 				templateUrl: 'src/Configuration/Config.html',
-				//controller: 'ConfigController'
+				controller: 'ConfigController'
 			});
 		});
 		

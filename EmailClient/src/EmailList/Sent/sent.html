@@ -1,4 +1,4 @@
-<div class="InjectDiv" ng-contorller="SentController">
+<div class="InjectDiv" ng-controller="SentController">
 	<div ng-repeat="mail in emails | orderBy:'sent':true | limitTo:15">
 		
 			<div class="emailList sent"  ng-class="{'read' : mail.read}">
