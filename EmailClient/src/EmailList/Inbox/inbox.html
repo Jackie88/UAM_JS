@@ -1,6 +1,8 @@
 <div>
 	<div class="InjectDiv" ng-contorller="InboxController">
-		<div ng-repeat="mail in emails | orderBy:'received':true | limitTo:5">
+		<ul id="list" class="emailList"></ul>
+		
+		<!-- <div ng-repeat="mail in emails | orderBy:'received':true | limitTo:5">
 			<div class="emailList"  ng-class="{'read' : mail.read}">
 				<a ui-sref="view({emailId:mail.id})">
 					<h3>Od: {{mail.sender}}</h3>
@@ -9,7 +11,7 @@
 				</a>
 				<button ng-click="deleteEmail(mail.id)">  USUŃ  </button>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
 

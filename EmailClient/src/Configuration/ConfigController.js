@@ -3,31 +3,18 @@ angular.module('email-config')
 	
 		$scope.$parent.title = "Config";
 		
-		$scope.change = function(int){
-
-			if (int === 1) {
-				$scope.appTitle.style.background = 'Red';
-				$scope.li.style.background = 'Salmon';
-				$state.go('config');
-			}
-
-			else if (int === 2) {
-				$scope.appTitle.style.background = 'Blue';
-				$scope.li.style.background = 'Aqua';				
-				$state.go('config');
-			}
-			else if (int === 3) {
-
-				$scope.appTitle.style.background = 'Green';	
-				$scope.li.style.background = 'PaleGreen';
-				$state.go('config');
-			}
+		$scope.skins = [{ "value": "default", "text": "default" }, { "value": "green", "text": "green" }, { "value": "yellow", "text": "yellow" }];
+		
+		$scope.save_options = function() {
+			configService.setInboxInterval($scope.interval);
+			configService.setSkinVariant($scope.skinVariant);
+			$rootScope.$emit("updateSkin", $scope.skinVariant);
 		};
 		
-		$scope.refresh_time = function(int){
-
+		var initialize = function() {
+			$scope.interval = configService.getInboxInterval();
+			$scope.skinVariant = configService.getSkinVariant();
 		};
 		
-		$scope.change();
-		$scope.refresh_time();
+		initialize();
 });

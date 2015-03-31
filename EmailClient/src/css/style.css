@@ -41,7 +41,7 @@ nav{
 #appTitle {
 	display: table;
 	background: #3b3b3b;
-	color:white;
+	color:red;
 	height:inherit;
 	width:20%;
 	left:0;
@@ -86,11 +86,27 @@ nav ul li:hover {
 	background: #80adff;
 }
 
-nav ul li {
+nav ul li.default {
 	
 	padding: 10px 0;
 	margin:1px;
 	background:#9cd3ff;
+	font-weight: bold;
+}
+
+nav ul li.green {
+	
+	padding: 10px 0;
+	margin:1px;
+	background-color: green;
+	font-weight: bold;
+}
+
+nav ul li.yellow {
+	
+	padding: 10px 0;
+	margin:1px;
+	background-color: yellow;
 	font-weight: bold;
 }
 

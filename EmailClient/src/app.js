@@ -2,12 +2,23 @@
 
 	var app = angular.module('emailApp', ['ui.router','email-inbox','email-sent','email-view','email-create','email-config']);
 	
-	app.controller('mainController',function($scope){
+	app.controller('mainController',function($scope, ConfigService){
 		
 		$scope.title = "Welcome";
 		$scope.reloadTime = 31000;
 		
-	});
+		var initialize = function() {
+			var skinLoad = configService.getSkinVariant();
+			$rootScope.skinVariant = skinLoad;
+		};
+		
+		initialize();
+		
+		$rootScope.$on("updateSkin", function(event,skinVariant) {
+			$rootScope.skinVariant = skinVariant;
+		});
+	})
+		
 	//app.config(function (localStorageServiceProvider) {
 	//  localStorageServiceProvider.prefix = 'mailApp';
 	//});
