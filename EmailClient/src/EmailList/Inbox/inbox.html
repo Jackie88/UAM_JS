@@ -1,7 +1,7 @@
 <div>
 	<div class="InjectDiv" ng-contorller="InboxController">
 		<ul id="list" class="emailList"></ul>
-		
+		<inbox-list data="emails"></inbox-list>
 		<!-- <div ng-repeat="mail in emails | orderBy:'received':true | limitTo:5">
 			<div class="emailList"  ng-class="{'read' : mail.read}">
 				<a ui-sref="view({emailId:mail.id})">

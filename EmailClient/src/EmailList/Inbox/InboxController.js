@@ -1,6 +1,6 @@
 angular.module('email-inbox')
 	
-	.controller('InboxController', function($timeout,$scope,$state,$http,ConfigService){
+	.controller('InboxController', function($timeout,$scope,$state,$http,configService){
 		
 		$scope.$parent.title = 'Odebrane';
 		$scope.reload = $scope.$parent.reloadTime;
@@ -59,7 +59,7 @@ angular.module('email-inbox')
 			
 			var deleteButton = document.createElement("button");
 			deleteButton.id = email.id;
-			deleteButton.bind('click', function() { deleteEmail(email.id) });
+			deleteButton.bind('click', function() { deleteEmail(email.id); });
 			deleteButton.innerHTML = "Usuń";
 			
 			

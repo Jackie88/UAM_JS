@@ -1,8 +1,8 @@
 (function(){
 
-	var app = angular.module('emailApp', ['ui.router','email-inbox','email-sent','email-view','email-create','email-config']);
+	var app = angular.module('emailApp', ['ui.router','email-inbox','email-sent','email-view','email-create','email-config', 'LocalStorageModule']);
 	
-	app.controller('mainController',function($scope, ConfigService){
+	app.controller('mainController',function($scope,$rootScope, configService){
 		
 		$scope.title = "Welcome";
 		$scope.reloadTime = 31000;
@@ -17,7 +17,7 @@
 		$rootScope.$on("updateSkin", function(event,skinVariant) {
 			$rootScope.skinVariant = skinVariant;
 		});
-	})
+	});
 		
 	//app.config(function (localStorageServiceProvider) {
 	//  localStorageServiceProvider.prefix = 'mailApp';

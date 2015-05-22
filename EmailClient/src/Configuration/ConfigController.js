@@ -1,5 +1,5 @@
 angular.module('email-config')
-	.controller('ConfigController', function($state,$scope,localStorageService){
+	.controller('ConfigController', function($state,$scope,$rootScope,configService){
 	
 		$scope.$parent.title = "Config";
 		
