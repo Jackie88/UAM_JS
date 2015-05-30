@@ -30,16 +30,18 @@ module.exports = function(grunt) {
         },
       },
 
-	    uglify: {
-	      options: {
+      uglify: {
+        options: {
           mangle: false,
-	        //banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-	      },
-	      build: {
-	        src: 'src/**/*.js',
-	        dest: 'build/app.min.js'
-	      }
-	    },
+          beautify: true,
+          compress: false
+          //banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        },
+        build: {
+          src: 'src/**/*.js',
+          dest: 'build/app.min.js'
+        }
+      },
 
       cssmin: {
         build: {
