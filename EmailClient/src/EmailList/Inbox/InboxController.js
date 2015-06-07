@@ -23,13 +23,19 @@ angular.module('email-inbox')
 		$scope.getData();
 		
 		$scope.intervalFunction = function(){
-			$timeout(function() {
+			$scope.timer = $timeout(function() {
 		    	$scope.getData();
 				$scope.intervalFunction();
-		    }, $scope.reload);
+		    }, interval);
 		};
 		  
 		$scope.intervalFunction();
+
+		$scope.$on("$destroy", function() {
+			if($scope.timer) {
+				$timeout.cancel($scope.timer);
+			}
+		});
 		
 })
 

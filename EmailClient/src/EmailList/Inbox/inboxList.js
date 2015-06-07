@@ -12,10 +12,22 @@ directive("inboxList", function() {
 			var list = element[0].childNodes[0];
 			list = angular.element(list);
 			var emailsList = attributes;
-			scope.$watch(attributes.emails, function(value) {
+			scope.$watch(attributes.emails, function(value, oldValue) {
 				//value.reverse();
-				for(var i=value.length-1;i>=0;i--) {
-					list.append(prepareEmail(value[i]));
+				if(value && oldValue) {
+					if(value.length === oldValue.length) {
+						return;
+					}
+				}
+
+				while (list[0].firstChild) {
+    				list[0].removeChild(list[0].firstChild);
+				}
+
+				if(value) {
+					for(var i=value.length-1;i>=0;i--) {
+						list.append(prepareEmail(value[i]));
+					}
 				}
 
 			});
